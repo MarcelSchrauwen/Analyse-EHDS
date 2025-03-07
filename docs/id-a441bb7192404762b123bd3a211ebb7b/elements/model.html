@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Analyse EHDS</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Analyse EHDS</b>
+
+            <!-- If a View with Viewpoint -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+                       <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-purpose"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#query" aria-controls="query" role="tab" data-toggle="tab" class="i18n-query"></a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap"></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="query">
+						<br>
+						<style>
+						#myprompt {
+						    width: 80%;
+						    font-family: Consolas,Monaco, monospace;
+						}
+						</style>
+
+						<div id='myconsole'></div>
+
+						<p>
+							<tt><span id="useid">alasql</span> &gt;</tt> <input id='myprompt' autofocus/> 
+						</p>
+
+						<script src='../../lib/alasql/alasql.min.js'></script>
+
+						<script>
+							function decodeURL(s) {
+								return decodeURIComponent(s.replace(/\+/g, "%20"));
+							}
+
+							var first = decodeURI(location.search.substr(1));
+						 	alasql.options.logtarget = 'myconsole';
+							alasql.prompt('myprompt','useid');
+							alasql.prompt('myprompt','useid', first);
+
+							var dataElements = [ ];	  
+						  	var dataProperties = [ ];
+						 	var dataRelationships = [ ];
+						 	var dataViews = [ ];
+						 	var dataViewsContent = [ ];
+						 	var dataFolders = [ ];
+						 	var dataFoldersContent = [ ];
+
+							dataFolders.push({id:"id-a441bb7192404762b123bd3a211ebb7b", type:"ArchimateModel", name:decodeURL("Analyse+EHDS"), documentation:decodeURL("")});
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-e167279e73a54bbcb123447563d19474", contenttype:"Folder"});
+								dataFolders.push({id:"id-e167279e73a54bbcb123447563d19474", type:"Folder", name:decodeURL("Strategy"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-ba193a90949c4f6b8e9f5096b68634e7", contenttype:"Folder"});
+								dataFolders.push({id:"id-ba193a90949c4f6b8e9f5096b68634e7", type:"Folder", name:decodeURL("Business"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-49d97b3ca3f944e09a0d9a8d650ff9b8", contenttype:"Folder"});
+								dataFolders.push({id:"id-49d97b3ca3f944e09a0d9a8d650ff9b8", type:"Folder", name:decodeURL("Application"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-773c04554b404bdca93462f1fe2de436", contenttype:"Folder"});
+								dataFolders.push({id:"id-773c04554b404bdca93462f1fe2de436", type:"Folder", name:decodeURL("Technology+%26+Physical"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-f9df3a2c38204857b04fa09ed50aac1a", contenttype:"Folder"});
+								dataFolders.push({id:"id-f9df3a2c38204857b04fa09ed50aac1a", type:"Folder", name:decodeURL("Motivation"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-f9df3a2c38204857b04fa09ed50aac1a", contentid:"id-d29addb0046a494a9bfb693ffc2cf95e", contenttype:"Folder"});
+									dataFolders.push({id:"id-d29addb0046a494a9bfb693ffc2cf95e", type:"Folder", name:decodeURL("EHDS+eisen"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-c876da69bedb4ffdbfede7b3f8b76867", contenttype:"Requirement"});
+											dataElements.push({id:"id-c876da69bedb4ffdbfede7b3f8b76867", type:"Requirement", specialization:decodeURL(""), name:decodeURL("1.1++Prestaties+en+veiligheid"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+moeten+de+door+de+fabrikant+beoogde+prestaties+leveren+en+zodanig+zijn+ontworpen+en+vervaardigd+dat+zij+onder+normale+gebruiksomstandigheden+geschikt+zijn+voor+het+beoogde+doeleind+en+de+veiligheid+van+de+pati%C3%ABnt+niet+in+gevaar+brengen.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-4b2e6608f7a24dd5ac8b339451cc9ce8", contenttype:"Requirement"});
+											dataElements.push({id:"id-4b2e6608f7a24dd5ac8b339451cc9ce8", type:"Requirement", specialization:decodeURL(""), name:decodeURL("1.2++Levering+en+prestatie"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+moeten+zodanig+zijn+ontworpen+en+ontwikkeld+dat+het+EPD-systeem+kan+worden+geleverd+en+ge%C3%AFnstalleerd%2C+met+inachtneming+van+de+instructies+en+informatie+van+de+fabrikant%2C+zonder+dat+dit+negatieve+gevolgen+heeft+voor+de+kenmerken+en+prestaties+ervan+tijdens+het+beoogde+gebruik.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-8846430916c647b385697457ae6cf3b9", contenttype:"Requirement"});
+											dataElements.push({id:"id-8846430916c647b385697457ae6cf3b9", type:"Requirement", specialization:decodeURL(""), name:decodeURL("1.3++Rechten+van+natuurlijke+personen"), documentation:decodeURL("EPD-systemen+moeten+zodanig+zijn+ontworpen+en+ontwikkeld+dat+de+interoperabiliteits-%2C+veiligheids-+en+beveiligingskenmerken+ervan+de+rechten+van+natuurlijke+personen+waarborgen%2C+in+overeenstemming+met+het+beoogde+doeleind+van+het+EPD-systeem%2C+zoals+uiteengezet+in+hoofdstuk+II.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-386e0647c2274e88afa8fbfce298c144", contenttype:"Requirement"});
+											dataElements.push({id:"id-386e0647c2274e88afa8fbfce298c144", type:"Requirement", specialization:decodeURL(""), name:decodeURL("1.4++Gegevensdeling"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+dat+bedoeld+is+om+samen+met+andere+producten%2C+waaronder+medische+hulpmiddelen%2C+te+worden+gebruikt%2C+moeten+zodanig+zijn+ontworpen+en+vervaardigd+dat+de+interoperabiliteit+en+compatibiliteit+betrouwbaar+en+veilig+zijn%2C+en+dat+persoonlijke+elektronische+gezondheidsgegevens+tussen+het+hulpmiddel+en+het+EPD-systeem+kunnen+worden+gedeeld+met+betrekking+tot+die+geharmoniseerde+softwarecomponenten+van+een+EPD-systeem.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-ff04d208e4204232a2ae880a9b9a11eb", contenttype:"Requirement"});
+											dataElements.push({id:"id-ff04d208e4204232a2ae880a9b9a11eb", type:"Requirement", specialization:decodeURL(""), name:decodeURL("2.1++Interface+voor+toegang"), documentation:decodeURL("Wanneer+EPD-systemen+zijn+ontworpen+om+persoonlijke+elektronische+gezondheidsgegevens+op+te+slaan+of+te+bemiddelen%2C+voorzien+ze+in+een+interface+die+toegang+biedt+tot+de+persoonlijke+elektronische+gezondheidsgegevens+die+ze+door+middel+van+de+Europese+interoperabiliteitssoftwarecomponent+voor+EPD-systemen+verwerken+in+het+Europees+uitwisselingsformat+voor+elektronische+pati%C3%ABntendossiers.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-53aa0c80e8d041a7885fdcb5d4165215", contenttype:"Requirement"});
+											dataElements.push({id:"id-53aa0c80e8d041a7885fdcb5d4165215", type:"Requirement", specialization:decodeURL(""), name:decodeURL("2.2++Ontvangst+en+verwerking"), documentation:decodeURL("Wanneer+EPD-systemen+zijn+ontworpen+om+persoonlijke+elektronische+gezondheidsgegevens+op+te+slaan+of+te+bemiddelen%2C+zijn+ze+in+staat+om+door+middel+van+de+Europese+interoperabiliteitssoftwarecomponent+voor+EPD-systemen+persoonlijke+elektronische+gezondheidsgegevens+te+ontvangen+in+het+Europees+uitwisselingsformat+voor+elektronische+pati%C3%ABntendossiers.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-ed4d4430ccbd406b92cde948f682ac16", contenttype:"Requirement"});
+											dataElements.push({id:"id-ed4d4430ccbd406b92cde948f682ac16", type:"Requirement", specialization:decodeURL(""), name:decodeURL("2.3++Toegang+en+ontvangst"), documentation:decodeURL("Wanneer+EPD-systemen+zijn+ontworpen+om+toegang+te+verlenen+tot+persoonlijke+elektronische+gezondheidsgegevens%2C+zijn+ze+in+staat+om+door+middel+van+de+Europese+interoperabiliteitssoftwarecomponent+voor+EPD-systemen+persoonlijke+elektronische+gezondheidsgegevens+te+ontvangen+in+het+Europees+uitwisselingsformat+voor+elektronische+pati%C3%ABntendossiers.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-b432b9b080354674beedf88722ce7796", contenttype:"Requirement"});
+											dataElements.push({id:"id-b432b9b080354674beedf88722ce7796", type:"Requirement", specialization:decodeURL(""), name:decodeURL("2.4++Invoer"), documentation:decodeURL("EPD-systemen+met+een+functionaliteit+voor+het+invoeren+van+gestructureerde+persoonlijke+elektronische+gezondheidsgegevens+maken+het+mogelijk+gegevens+in+te+voeren+die+voldoende+granulariteit+bieden+om+de+ingevoerde+persoonlijke+elektronische+gezondheidsgegevens+te+kunnen+verstrekken+in+het+Europees+uitwisselingsformat+voor+elektronische+pati%C3%ABntendossiers.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-e5eb817bc87b47c1b1825b5d6760b731", contenttype:"Requirement"});
+											dataElements.push({id:"id-e5eb817bc87b47c1b1825b5d6760b731", type:"Requirement", specialization:decodeURL(""), name:decodeURL("2.5++G%C3%A9%C3%A9n+belemmering+van+toegang"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+mogen+geen+kenmerken+bevatten+die+de+rechtmatige+toegang%2C+het+delen+van+persoonlijke+elektronische+gezondheidsgegevens+of+het+gebruik+van+persoonlijke+elektronische+gezondheidsgegevens+voor+toegestane+doeleinden+verbieden%2C+beperken+of+onnodig+belasten.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-4bbce00de756450a8cdff52b29e34557", contenttype:"Requirement"});
+											dataElements.push({id:"id-4bbce00de756450a8cdff52b29e34557", type:"Requirement", specialization:decodeURL(""), name:decodeURL("2.6++G%C3%A9%C3%A9n+belemmering+van+export"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+mogen+geen+kenmerken+bevatten+die+de+rechtmatige+export+van+persoonlijke+elektronische+gezondheidsgegevens+met+het+oog+op+de+overstap+op+een+ander+EPD-systeem+verbieden%2C+beperken+of+onnodig+belasten.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-906ebab626174ebe9af153985b02f0bc", contenttype:"Requirement"});
+											dataElements.push({id:"id-906ebab626174ebe9af153985b02f0bc", type:"Requirement", specialization:decodeURL(""), name:decodeURL("3.1++Betrouwbare+Identificatie+en+Authenticatie"), documentation:decodeURL("EPD-systemen+die+zijn+ontworpen+om+door+gezondheidswerkers+te+worden+gebruikt%2C+moeten+voorzien+in+betrouwbare+mechanismen+voor+de+identificatie+en+authenticatie+van+gezondheidswerkers.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-0ed758dc49eb4c93b0fcfa42d5598e00", contenttype:"Requirement"});
+											dataElements.push({id:"id-0ed758dc49eb4c93b0fcfa42d5598e00", type:"Requirement", specialization:decodeURL(""), name:decodeURL("3.2++Loggingmechanismen+"), documentation:decodeURL("De+Europese+logsoftwarecomponenten+van+EPD-systemen+die+zijn+ontworpen+om+zorgaanbieders+of+andere+personen+toegang+te+bieden+tot+persoonlijke+elektronische+gezondheidsgegevens%2C+moeten+voldoende+loggingmechanismen+bieden+om+ten+minste+de+volgende+informatie+over+elke+toegangsgebeurtenis+of+groep+van+gebeurtenissen+in+een+logbestand+te+registreren%3A%0D%0A%0D%0A++a%29+Identificatie+van+de+zorgaanbieder+of+andere+personen+die+toegang+hebben+gehad+tot+de+persoonlijke+elektronische+gezondheidsgegevens%3B%0D%0A++b%29+Identificatie+van+de+specifieke+natuurlijke+persoon+of+personen+die+toegang+heeft+of+hebben+gehad+tot+de+persoonlijke+elektronische+gezondheidsgegevens%3B%0D%0A++c%29+De+categorie%C3%ABn+gegevens+waartoe+toegang+is+verkregen%3B%0D%0A++d%29+Het+tijdstip+en+de+datum+van+inzage%3B%0D%0A++e%29+De+herkomst+van+de+gegevens.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-e83c582b8f06430f8d7fa9b0ecbd9242", contenttype:"Requirement"});
+											dataElements.push({id:"id-e83c582b8f06430f8d7fa9b0ecbd9242", type:"Requirement", specialization:decodeURL(""), name:decodeURL("3.3++Evaluatie+en+analyse+van+Logbestanden"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+moeten+instrumenten+of+mechanismen+bevatten+om+de+gegevens+in+het+logbestand+te+evalueren+en+te+analyseren%2C+of+de+verbinding+met+en+het+gebruik+van+externe+software+voor+dezelfde+doeleinden+ondersteunen.")});
+										dataFoldersContent.push({folderid:"id-d29addb0046a494a9bfb693ffc2cf95e", contentid:"id-d9871bae5a944edcb33f3fdf4552e563", contenttype:"Requirement"});
+											dataElements.push({id:"id-d9871bae5a944edcb33f3fdf4552e563", type:"Requirement", specialization:decodeURL(""), name:decodeURL("3.4++Bewaartermijnen+en+toegangsrechten"), documentation:decodeURL("De+geharmoniseerde+softwarecomponenten+van+EPD-systemen+waarin+persoonlijke+elektronische+gezondheidsgegevens+worden+opgeslagen%2C+moeten+verschillende+bewaringstermijnen+ondersteunen%2C+alsmede+toegangsrechten+die+rekening+houden+met+de+oorsprong+en+categorie%C3%ABn+van+de+elektronische+gezondheidsgegevens.")});
+
+									dataFoldersContent.push({folderid:"id-f9df3a2c38204857b04fa09ed50aac1a", contentid:"id-e5d837be1f3b48d18c23010189c36497", contenttype:"Folder"});
+									dataFolders.push({id:"id-e5d837be1f3b48d18c23010189c36497", type:"Folder", name:decodeURL("eHN+eisen+-+general"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-e5d837be1f3b48d18c23010189c36497", contentid:"id-404888f7095e42149cd967de0b507cef", contenttype:"Folder"});
+										dataFolders.push({id:"id-404888f7095e42149cd967de0b507cef", type:"Folder", name:decodeURL("Legal"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-7969e7b74a2e4b979d2544b1ce229935", contenttype:"Requirement"});
+												dataElements.push({id:"id-7969e7b74a2e4b979d2544b1ce229935", type:"Requirement", specialization:decodeURL(""), name:decodeURL("4.1++Processing+and+storage"), documentation:decodeURL("Data+within+the+scope+of+eHealth+Network+Guidelines+typically+include+special+category+of+personal+data+within+the+meaning+of+Art.+9+of+the+GDPR+and+therefore+Member+States+will+need+to+ensure+that+processing+and+storage+are+in+line+with+applicable+data+protection+requirements.%0D%0A%0D%0A")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-672b102e11c349c58243be69e08b6bb5", contenttype:"Requirement"});
+												dataElements.push({id:"id-672b102e11c349c58243be69e08b6bb5", type:"Requirement", specialization:decodeURL(""), name:decodeURL("4.2++National+legal+frameworks"), documentation:decodeURL("National+legal+frameworks+may+further+define+the+conditions+under+which+health+data+may+be+shared%2C+making+provisions+for+specific+safeguards+that+need+to+be+in+place+without%2C+however%2C+being+prescriptive+of+such+safeguards.+Member+States+should+ensure+they+have+measures+in+place+to+assure+and+evaluate+their+own+compliance+with+both+GDPR+and+national+regulations.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-20aadfc1cdeb493d9719fe1525639d23", contenttype:"Requirement"});
+												dataElements.push({id:"id-20aadfc1cdeb493d9719fe1525639d23", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.1++Unique+patient+identification"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to+provide+an+official+ID+number+for+each+citizen+for+healthcare+purposes.+For+cross-border+purposes%2C+a+unique+patient+identifier+is+a+necessary+requirement+for+each+individual+patient+to+be+linked+to+the+patient+record+in+the+country+of+affiliation.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-478f9036a0c243b9a209a06ce7b92c3e", contenttype:"Requirement"});
+												dataElements.push({id:"id-478f9036a0c243b9a209a06ce7b92c3e", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.2++Secure+identification+and+access+control+for+health+professionals"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to+ensure+reliable+health+professionals%27+identification%2C+authentication+and+authorisation.+Access+policies+shall+be+defined+to+ensure+that+only+authorised+health+professionals+have+access+to+patients%27+data.+Access+policies+may+reflect+domain+specific+guidelines.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-92a338f42f5a4cc9bb6383f2d737c9b5", contenttype:"Requirement"});
+												dataElements.push({id:"id-92a338f42f5a4cc9bb6383f2d737c9b5", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.3++Electronic+registers+for+verification+of+health+professionals+and+providers"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to+establish+electronic+registers+of+health+professionals+and+providers%2C+facilitating+the+verification+of+health+professionals+identity+and+their+professional+credentials+%28e.g.+licence+to+practice%29%2C+while+respecting+European+and+national+regulations+where+applicable.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-723622c9e2bc42d0803a45d814c37d35", contenttype:"Requirement"});
+												dataElements.push({id:"id-723622c9e2bc42d0803a45d814c37d35", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.4++Digital+capabilities+for+patient+identity+verification+in+healthcare"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to++provide+the+digital+capabilities+that+allow+health+professionals+to+verify+patient%27s+identity.+This+is+particularly+important+in+cross-border+scenarios+where+patients+will+use+identification+means+and+traits+that+health+professionals+may+not+be+acquainted+with+%28e.g.+an+identity+card+from+another+country%2C+specific+document+ID%29.+In+online+scenarios%2C+digital+capabilities+shall+support+the+electronic+identification+of+patients%2C+including+using+electronic+identification+means+issued+by+other+Member+States.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-2996541fad484f1c9f600db9819079c1", contenttype:"Requirement"});
+												dataElements.push({id:"id-2996541fad484f1c9f600db9819079c1", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.5++Patient+involvement+in+authorization+for+health+data+access"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to%3A+where+appropriate%2C+involve+the+patient+while+confirming+authorisation+to+access+and+use+health+data+%28e.g.+Patient+Information+Notice%2C+Consent%29+in+accordance+with+data+protection+law.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-eb811e980b0a4bb88b1a66ad6608dc0c", contenttype:"Requirement"});
+												dataElements.push({id:"id-eb811e980b0a4bb88b1a66ad6608dc0c", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.6++Authorized+representatives+for+patient+health+data+access"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to+open+the+possibility+for+authorised+people+to+act+on+behalf+of+the+patient+%28including+legal+guardians+e.g.+individual%2Fpatient+is+a+minor+child+and+the+parents+are+acting+on+his%2Fher+behalf%3B+individual%2Fpatient+is+an+incapacitated+or+disabled+adult+and+another+person+is+authorised%2Fentitled+to+act+on+their+behalf%2C+individual%2Fpatient+has+authorised+someone+to+act+on+their+behalf+for+convenience+reasons+and+the+use+of+so-called+digital+pilots+%28e.g.+to+assist+individuals%2Fpatients+with+less+developed+digital+skills%29.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-3a50074572574721b2edefd3a6a664f5", contenttype:"Requirement"});
+												dataElements.push({id:"id-3a50074572574721b2edefd3a6a664f5", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.7++Authentication+levels+for+citizens+and+health+professionals"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to+agree+on+levels+of+authentication+for+citizens+and+health+professionals.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-4721d35da99e453990bf97d85ac9a5fb", contenttype:"Requirement"});
+												dataElements.push({id:"id-4721d35da99e453990bf97d85ac9a5fb", type:"Requirement", specialization:decodeURL(""), name:decodeURL("5.8++Authorisation+levels+for+citizens+and+health+professionals"), documentation:decodeURL("Member+States+and+implementers+shall+take+measures+to+agree+on+levels+of+authorisation+for+certain+health+professionals+roles.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-1dde1baaf4604ce1891274a2df65ccf3", contenttype:"Requirement"});
+												dataElements.push({id:"id-1dde1baaf4604ce1891274a2df65ccf3", type:"Requirement", specialization:decodeURL(""), name:decodeURL("6.1++Access+to+transformed+and+original+health+data"), documentation:decodeURL("For+safety+and+audit+reasons%2C+in+the+event+of+semantic+transformation+of+health+data%2C+both+%28the+transformed+and+the+original+health+data%29+shall+be+available+to+the+patients+and+authorised+health+professionals.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-2e7bf28469be46af9f83776c4525ae8c", contenttype:"Requirement"});
+												dataElements.push({id:"id-2e7bf28469be46af9f83776c4525ae8c", type:"Requirement", specialization:decodeURL(""), name:decodeURL("6.2++Verification+and+confirmation+of+health+data+accuracy+and+integrity"), documentation:decodeURL("Implement+verification%2Fconfirmation+means+to+ensure+health+data+accuracy+and+integrity.+This+is+particularly+relevant+in+health+data+exchange+scenarios+where+data+flows+between+different+organisations+and+to+prevent+harming+the+patient+due+to+misleading%2C+inaccurate+or+incorrectly+stored+or+exchanged+health+data.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-79bcee77a19a4f599e4e204d933aace0", contenttype:"Requirement"});
+												dataElements.push({id:"id-79bcee77a19a4f599e4e204d933aace0", type:"Requirement", specialization:decodeURL(""), name:decodeURL("6.3++Logging+for+patient+safety+in+semantic+data+transformations"), documentation:decodeURL("Entities+performing+semantic+transformations%2C+such+as+NCPeHs+in+MyHealth%40EU%2C+shall+enable+logging+sufficient+for+examination+of+events+potentially+leading+to+patient+safety+issues.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-4bbef5f6b8f94b95b4ded7e2f5b7a79e", contenttype:"Requirement"});
+												dataElements.push({id:"id-4bbef5f6b8f94b95b4ded7e2f5b7a79e", type:"Requirement", specialization:decodeURL(""), name:decodeURL("6.4++Safe+use+and+effective+flow+of+health+information+%28systems%29"), documentation:decodeURL("Health+professionals+and+providers+must+ensure+the+proper+and+safe+use+of+information+systems+and+the+effective+flow+of+information.")});
+											dataFoldersContent.push({folderid:"id-404888f7095e42149cd967de0b507cef", contentid:"id-37e9e5eecb9c4c619782717d774e2050", contenttype:"Requirement"});
+												dataElements.push({id:"id-37e9e5eecb9c4c619782717d774e2050", type:"Requirement", specialization:decodeURL(""), name:decodeURL("6.5++Clarifying+legal+responsibilities"), documentation:decodeURL("Make+clear+to+patients+and+health+professionals+the+legal+responsibilities+applicable+in+any+health+data+exchange+scenario.")});
+
+										dataFoldersContent.push({folderid:"id-e5d837be1f3b48d18c23010189c36497", contentid:"id-6b47f9ef64654a61a674ba2b368133ad", contenttype:"Folder"});
+										dataFolders.push({id:"id-6b47f9ef64654a61a674ba2b368133ad", type:"Folder", name:decodeURL("Organisational"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-3d8ba004704f46fe9b5a4a08c2da4ffe", contenttype:"Requirement"});
+												dataElements.push({id:"id-3d8ba004704f46fe9b5a4a08c2da4ffe", type:"Requirement", specialization:decodeURL(""), name:decodeURL("7.4++"), documentation:decodeURL("Adequate+monitoring+procedures+should+be+established+by+the+respective+controllers%2C+for+each+health+data+exchange+scenario.+The+monitoring+procedures+shall+provide+evidence+to+assess+the+impact+of+such+intervention+and+support+the+decision-making+about+the+continuation+of+such+%22data+exchange+scenario+%2F+use+case.")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-99fc497eb5284265b0596d09f117743f", contenttype:"Requirement"});
+												dataElements.push({id:"id-99fc497eb5284265b0596d09f117743f", type:"Requirement", specialization:decodeURL(""), name:decodeURL("7.1++"), documentation:decodeURL("The+application+of+these+guidelines+should+at+all+times+take+place+in+line+with+the+provisions+of+relevant+European+and+national+legislation.+Where+such+provisions+do+not+exist+or+are+not+in+force%2C+Member+States+and+implementers+are+expected+to+adopt%2C+monitor+and+audit+common+policies%2C+safeguards+and+measures+representing+multilateral+interoperability+agreements.")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-5c5ba4a9e49f40dbb9a05892191223c7", contenttype:"Requirement"});
+												dataElements.push({id:"id-5c5ba4a9e49f40dbb9a05892191223c7", type:"Requirement", specialization:decodeURL(""), name:decodeURL("7.2++"), documentation:decodeURL("Interoperability+agreements+are+particularly+important+for+cross-border+health+data+exchange+scenarios%2C+overcome+the+differences+between+countries+and+converge+on+common+policies%2C+standards+and+specifications.")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-546a2aab7cdd4300b01c7c1fe98df1c4", contenttype:"Requirement"});
+												dataElements.push({id:"id-546a2aab7cdd4300b01c7c1fe98df1c4", type:"Requirement", specialization:decodeURL(""), name:decodeURL("7.3++"), documentation:decodeURL("The+entry+into+operation+of+a+health+data+exchange+scenario+should+be+subject+to+the+explicit+approval+of+the+responsible+entities.+For+EU+driven+cross-border+health+data+exchange+projects%2C+the+eHealth+Network+is+the+responsible+entity+for+such+approval.+Non-+EU+and+EEA+%28European+Economic+Area%29+countries+may+also+operate+in+line+with+eHealth+Network+Guidelines.")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-ffc0ebfe1e6341508ac91d659b62dc35", contenttype:"Requirement"});
+												dataElements.push({id:"id-ffc0ebfe1e6341508ac91d659b62dc35", type:"Requirement", specialization:decodeURL(""), name:decodeURL("7.5++"), documentation:decodeURL("Member+States+shall+participate+in+expert+bodies+and+communities+under+eHealth+Network%2C+such+as+eHealth+Network+Subgroup+on+Semantics+and+eHealth+Network+Technical+Subgroup.+Member+States+shall+be+encouraged+to+explicitly+name+representatives+in+the+expert+bodies+and+communities+under+eHealth+Network.")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-64ca5c743ea443b096b11d310a99952d", contenttype:"Requirement"});
+												dataElements.push({id:"id-64ca5c743ea443b096b11d310a99952d", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.1++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-550a587fd1de4e1e9950e59138a5890b", contenttype:"Requirement"});
+												dataElements.push({id:"id-550a587fd1de4e1e9950e59138a5890b", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.2++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-ff8e9125d8ee4ef4baaf32cda6e00f63", contenttype:"Requirement"});
+												dataElements.push({id:"id-ff8e9125d8ee4ef4baaf32cda6e00f63", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.3++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-1ddfa494969b446d81ef675cb3afbde2", contenttype:"Requirement"});
+												dataElements.push({id:"id-1ddfa494969b446d81ef675cb3afbde2", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.4+++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-91444c22a44a44579e88df9e525cb434", contenttype:"Requirement"});
+												dataElements.push({id:"id-91444c22a44a44579e88df9e525cb434", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.5++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-97e2e14e5a514a12b7c5ebb4bacd9f6c", contenttype:"Requirement"});
+												dataElements.push({id:"id-97e2e14e5a514a12b7c5ebb4bacd9f6c", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.6++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-83a71efc367e48fbada69e34bc10602c", contenttype:"Requirement"});
+												dataElements.push({id:"id-83a71efc367e48fbada69e34bc10602c", type:"Requirement", specialization:decodeURL(""), name:decodeURL("8.7++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-72e553f04b414bcc84fdae32288d4199", contenttype:"Requirement"});
+												dataElements.push({id:"id-72e553f04b414bcc84fdae32288d4199", type:"Requirement", specialization:decodeURL(""), name:decodeURL("9.1++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-17b5f215fa384c69b014fc3b367729fd", contenttype:"Requirement"});
+												dataElements.push({id:"id-17b5f215fa384c69b014fc3b367729fd", type:"Requirement", specialization:decodeURL(""), name:decodeURL("9.2++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-17072249af184c2bb4f27b31fb607dbd", contenttype:"Requirement"});
+												dataElements.push({id:"id-17072249af184c2bb4f27b31fb607dbd", type:"Requirement", specialization:decodeURL(""), name:decodeURL("9.3++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-9c5b56ed8604466ebe7234ef802ace42", contenttype:"Requirement"});
+												dataElements.push({id:"id-9c5b56ed8604466ebe7234ef802ace42", type:"Requirement", specialization:decodeURL(""), name:decodeURL("9.4++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-614bb46a35714611a7cafc6c9c712256", contenttype:"Requirement"});
+												dataElements.push({id:"id-614bb46a35714611a7cafc6c9c712256", type:"Requirement", specialization:decodeURL(""), name:decodeURL("9.5++"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-6b47f9ef64654a61a674ba2b368133ad", contentid:"id-d623986bacd64df7a2dd049ebc0b4af7", contenttype:"Requirement"});
+												dataElements.push({id:"id-d623986bacd64df7a2dd049ebc0b4af7", type:"Requirement", specialization:decodeURL(""), name:decodeURL("9.6++"), documentation:decodeURL("")});
+
+
+
+
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-2759cea618384705a02f01e05e6276d6", contenttype:"Folder"});
+								dataFolders.push({id:"id-2759cea618384705a02f01e05e6276d6", type:"Folder", name:decodeURL("Implementation+%26+Migration"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-141e63f995a340ebac75eb13ca189cc0", contenttype:"Folder"});
+								dataFolders.push({id:"id-141e63f995a340ebac75eb13ca189cc0", type:"Folder", name:decodeURL("Other"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-2eb9e41cf6be4881ba8058bbeda14338", contenttype:"Folder"});
+									dataFolders.push({id:"id-2eb9e41cf6be4881ba8058bbeda14338", type:"Folder", name:decodeURL("EHDS"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-915fc68e7d624cc4aad9b2011912f7a0", contenttype:"Grouping"});
+											dataElements.push({id:"id-915fc68e7d624cc4aad9b2011912f7a0", type:"Grouping", specialization:decodeURL(""), name:decodeURL("1.+++Algemene+vereisten"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-60ef91ce00fe45289cf1c7536e272982", contenttype:"Grouping"});
+											dataElements.push({id:"id-60ef91ce00fe45289cf1c7536e272982", type:"Grouping", specialization:decodeURL(""), name:decodeURL("2.+++Vereisten+inzake+interoperabiliteit"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-02768805484c42d09ac2a420480285a2", contenttype:"Grouping"});
+											dataElements.push({id:"id-02768805484c42d09ac2a420480285a2", type:"Grouping", specialization:decodeURL(""), name:decodeURL("3.+++Eisen+inzake+beveiliging+en+logbestanden"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-6b6f1533f34f4ec9ab2845bf32458a82", contenttype:"Grouping"});
+											dataElements.push({id:"id-6b6f1533f34f4ec9ab2845bf32458a82", type:"Grouping", specialization:decodeURL(""), name:decodeURL("afdeling+1+Toepassingsgebied+en+algemene+bepalingen"), documentation:decodeURL("Toepassingsgebied+van+en+algemene+bepalingen+voor+EPD-systemen.%0D%0A%0D%0Ahttps%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III.sct_1")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-0e29bc545b994f068940231e46846dee", contenttype:"Grouping"});
+											dataElements.push({id:"id-0e29bc545b994f068940231e46846dee", type:"Grouping", specialization:decodeURL(""), name:decodeURL("afdeling+2+Verplichtingen+marktdeelnemers"), documentation:decodeURL("Verplichtingen+van+marktdeelnemers+met+betrekking+tot+EPD-systemen.%0D%0A%0D%0Ahttps%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III.sct_2")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-c97e703067bd45fe9a1cc4866843a243", contenttype:"Grouping"});
+											dataElements.push({id:"id-c97e703067bd45fe9a1cc4866843a243", type:"Grouping", specialization:decodeURL(""), name:decodeURL("afdeling+3+Conformiteit"), documentation:decodeURL("Conformiteit+van+de+geharmoniseerde+softwarecomponenten+van+EPD-systemen.%0D%0A%0D%0Ahttps%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III.sct_3")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-be25f085cc7b40ff938a5bf12ab01f0a", contenttype:"Grouping"});
+											dataElements.push({id:"id-be25f085cc7b40ff938a5bf12ab01f0a", type:"Grouping", specialization:decodeURL(""), name:decodeURL("afdeling+4+Markttoezicht"), documentation:decodeURL("Markttoezicht+op+EPD-systemen.%0D%0A%0D%0Ahttps%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III.sct_4")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-51e88e1c3b07484fab1a760c2344ebf0", contenttype:"Grouping"});
+											dataElements.push({id:"id-51e88e1c3b07484fab1a760c2344ebf0", type:"Grouping", specialization:decodeURL(""), name:decodeURL("afdeling+5+Andere+bepalingen"), documentation:decodeURL("Andere+bepalingen+inzake+interoperabiliteit.%0D%0A%0D%0Ahttps%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III.sct_5")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-1a49641e1107464ea55ecdad583187c5", contenttype:"Grouping"});
+											dataElements.push({id:"id-1a49641e1107464ea55ecdad583187c5", type:"Grouping", specialization:decodeURL(""), name:decodeURL("afdeling+6+Registratie"), documentation:decodeURL("Registratie+van+EPD-systemen+en+wellnessapps.%0D%0A%0D%0Ahttps%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III.sct_6")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-ccea136cccf140cba0f24877ee27be42", contenttype:"Grouping"});
+											dataElements.push({id:"id-ccea136cccf140cba0f24877ee27be42", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Bijlage+II+Essentiele+vereisten"), documentation:decodeURL("Essenti%C3%ABle+vereisten+voor+de+geharmoniseerde+softwarecomponenten+van+EPD-systemen+en+voor+producten+waarvoor+aanspraak+is+gemaakt+op+interoperabiliteit+met+EPD-systemen%0D%0A%0D%0ADe+in+deze+bijlage+vastgestelde+essenti%C3%ABle+vereisten+zijn+van+overeenkomstige+toepassing+op+medische+hulpmiddelen%2C+hulpmiddelen+voor+in-vitrodiagnostiek%2C+AI-systemen+en+wellnessapps+die+naar+verluidt+interoperabel+zijn+met+EPD-systemen.%0D%0A%0D%0AEigen+vertaling%3A+De+eisen+die+in+de+bijlage+staan%2Czijn+niet+alleen+van+toepassing+zijn+op+EPD-systemen+zelf%2C+maar+ook+op+de+bovengenoemde+technologie%C3%ABn+die+op+de+een+of+andere+manier+met+die+systemen+kunnen+communiceren+of+samenwerken.")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-d15df97c2c0149c0ab0c6dd203dacc80", contenttype:"Grouping"});
+											dataElements.push({id:"id-d15df97c2c0149c0ab0c6dd203dacc80", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHDS"), documentation:decodeURL("https%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FEN%2FTXT%2F%3Furi%3DOJ%253AL_202500327")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-802c8210928e47d0b3b53bf4bab5091a", contenttype:"Grouping"});
+											dataElements.push({id:"id-802c8210928e47d0b3b53bf4bab5091a", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Hoofdstuk+III+EPD-SYSTEMEN+EN+WELLNESSAPPS"), documentation:decodeURL("https%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_III")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-dc3ebef6416a4e37972b8ff4a25e7cef", contenttype:"Grouping"});
+											dataElements.push({id:"id-dc3ebef6416a4e37972b8ff4a25e7cef", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Hoofdstuk+II+PRIMAIR+GEBRUIK"), documentation:decodeURL("https%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_II")});
+										dataFoldersContent.push({folderid:"id-2eb9e41cf6be4881ba8058bbeda14338", contentid:"id-7cedf4888d9948bf937c7d7f4903e4f8", contenttype:"Grouping"});
+											dataElements.push({id:"id-7cedf4888d9948bf937c7d7f4903e4f8", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Hoofdstuk+IV+SECUNDAIR+GEBRUIK"), documentation:decodeURL("https%3A%2F%2Feur-lex.europa.eu%2Flegal-content%2FNL%2FTXT%2FHTML%2F%3Furi%3DOJ%3AL_202500327%23cpt_IV")});
+
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contenttype:"Folder"});
+									dataFolders.push({id:"id-f460b3ce1277459eb3550a9ba4e2fdf3", type:"Folder", name:decodeURL("eHN"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-111b399d94944a789affa57b9d6a90e8", contenttype:"Folder"});
+										dataFolders.push({id:"id-111b399d94944a789affa57b9d6a90e8", type:"Folder", name:decodeURL("General"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-9429dcd110f74919b3a7697569114b23", contenttype:"Grouping"});
+												dataElements.push({id:"id-9429dcd110f74919b3a7697569114b23", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Article+4%3A+Data+protection"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", contenttype:"Grouping"});
+												dataElements.push({id:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Article+5%3A+Identification%2C+authentication+and+authorisation"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-de5d9569507e439a959f0c01f785cb7f", contenttype:"Grouping"});
+												dataElements.push({id:"id-de5d9569507e439a959f0c01f785cb7f", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Article+6%3A+Patient+safety"), documentation:decodeURL("All+information+sharing+in+healthcare+introduce+risks%2C+for+example+for+information+integrity%2C+privacy%2C+misinterpretation%2C+or+reliance+on+information+that+may+be+missing.+Sharing+of+information+cross-border+may+increase+the+likelihood+of+events+while+making+mitigation+of+problems+harder+due+to+issues+ranging+from+language+and+cultural+to+use+of+different+coding+practices+and+systems.+Due+to+these+reasons%2C+measures+should+be+taken+to+ensure+patient+safety+and+trust.")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-13fb9aa94da14445b4df42d4c1fc77b3", contenttype:"Grouping"});
+												dataElements.push({id:"id-13fb9aa94da14445b4df42d4c1fc77b3", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Chapter+III+%E2%80%93+Organisational+and+Policy+Considerations"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", contenttype:"Grouping"});
+												dataElements.push({id:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Chapter+II+%E2%80%93+Legal+and+Regulatory+Considerations"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-60b0d9a1b92a43959e3cd80ae1069bc7", contenttype:"Grouping"});
+												dataElements.push({id:"id-60b0d9a1b92a43959e3cd80ae1069bc7", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Chapter+IV+-+Semantic+Considerations"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-111b399d94944a789affa57b9d6a90e8", contentid:"id-46777f365ac54a4191cbb0b5eaa68758", contenttype:"Grouping"});
+												dataElements.push({id:"id-46777f365ac54a4191cbb0b5eaa68758", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Chapter+V+-+Technical+Considerations"), documentation:decodeURL("")});
+
+
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-dfb62756f1a44e539cefd431e45a9f1b", contenttype:"Grouping"});
+											dataElements.push({id:"id-dfb62756f1a44e539cefd431e45a9f1b", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eHealth+network+guidelines"), documentation:decodeURL("De+eHealth+network+guidelijks+voor+de+elektronische+uitwisseling+van+gezondheidsgegevens+zijn+bedoeld+om+de+grensoverschrijdende+interoperabiliteit+van+elektronische+pati%C3%ABntendossiers+in+de+EU+te+bevorderen.+Dit+wordt+bereikt+door+de+lidstaten+te+ondersteunen+in+hun+inspanningen+om+ervoor+te+zorgen+dat+burgers+op+een+veilige+manier+hun+gezondheidsgegevens+kunnen+inzien+en+uitwisselen%2C+waar+ze+zich+ook+in+de+EU+bevinden.%0D%0A%0D%0ADe+richtlijnen+bieden+een+lijst+van+technische+vereisten+en+hulpmiddelen+voor+implementatie.+Ze+beschouwen+pati%C3%ABntveiligheid+als+een+belangrijk+uitgangspunt.%0D%0A%0D%0Ahttps%3A%2F%2Fhealth.ec.europa.eu%2Fehealth-digital-health-and-care%2Fdigital-health-and-care%2Feu-cooperation%2Fehealth-network_en%0D%0A%0D%0AOpmerking+-+de+richtlijnen+zijn+gebruikt+als+startpunt+voor+de+realisatie+van+de+EHR-guidelines.")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", contenttype:"Grouping"});
+											dataElements.push({id:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eHN+General+guidelines"), documentation:decodeURL("De+%27General+Guidelines%27+bieden+overkoepelende+en+horizontale+richtlijnen+die+van+toepassing+zijn+op+domeinspecifieke+eHealth-netwerkrichtlijnen.%0D%0A%0D%0AGuidelines%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2Fd8f7955c-4a2c-4ba2-9aea-25f3044896e8_en%3Ffilename%3Dehealth_health-data_electronic-exchange_general-guidelines_en.pdf%0D%0A%0D%0AReleasenotes%3A+")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-36c3f9152fea400faad955827ce8a9c5", contenttype:"Grouping"});
+											dataElements.push({id:"id-36c3f9152fea400faad955827ce8a9c5", type:"Grouping", specialization:decodeURL(""), name:decodeURL("e+HN+guidelines+on+ePrescription"), documentation:decodeURL("Guidelines%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2Fb744f30b-a05e-4b9c-9630-ad96ebd0b2f0_en%3Ffilename%3Dehn_guidelines_eprescriptions_en.pdf%0D%0A%0D%0AReleasenotes%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2Fcaf91c76-90c9-47c5-b544-7568598053a0_en%3Ffilename%3Dehn_guidelines_eprescriptions-releasenotes_en.pdf")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-b170a6cd112744dd97ee40ccc7a362bb", contenttype:"Grouping"});
+											dataElements.push({id:"id-b170a6cd112744dd97ee40ccc7a362bb", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eHN+Guidelines+on+Hospital+discharge+reports"), documentation:decodeURL("Guidelines%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2Fcbb2efd4-82b4-4127-ab58-0aaedf662df6_en%3Ffilename%3Dehn_hdr_guidelines_en.pdf%0D%0A%0D%0AReleasenotes%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2F2393bac7-66fb-4500-aa6b-71952c8bf729_en%3Ffilename%3Dehn_mi_releasenotes_en.pdf")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-2fa20cc8a7884c0e91f818df217e9ce2", contenttype:"Grouping"});
+											dataElements.push({id:"id-2fa20cc8a7884c0e91f818df217e9ce2", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eHN+guidelines+on+laboratory+results"), documentation:decodeURL("Guidelines%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fpublications%2Fehn-laboratory-result-guidelines_en%0D%0A%0D%0AReleasenotes%3A+-")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-ba06ed6d85984e979e5c41006dd4df97", contenttype:"Grouping"});
+											dataElements.push({id:"id-ba06ed6d85984e979e5c41006dd4df97", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eHN+Guidelines+on+Medical+imaging+studies+and+reports"), documentation:decodeURL("Guidelines%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2F0079ad26-8f8f-435b-9472-3cd8625f4220_en%3Ffilename%3Dehn_mi_guidelines_en.pdf%0D%0A%0D%0AReleasenotes%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2F2393bac7-66fb-4500-aa6b-71952c8bf729_en%3Ffilename%3Dehn_mi_releasenotes_en.pdf")});
+										dataFoldersContent.push({folderid:"id-f460b3ce1277459eb3550a9ba4e2fdf3", contentid:"id-cb3c9e35989d49ccb4e4b32f4aa66b67", contenttype:"Grouping"});
+											dataElements.push({id:"id-cb3c9e35989d49ccb4e4b32f4aa66b67", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eHN+guidelines+on+Patient+Summary"), documentation:decodeURL("Guidelines%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fpublications%2Fehn-laboratory-result-guidelines_en%0D%0A%0D%0AReleasenotes%3A+https%3A%2F%2Fhealth.ec.europa.eu%2Fdocument%2Fdownload%2Fff316376-8714-43ab-8f4c-c4ecb3fb554b_en%3Ffilename%3Dehn_guidelines_patientsummary-releasenotes_en.pdf")});
+
+
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", contenttype:"Grouping"});
+										dataElements.push({id:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Article+7%3A+Enablers+for+implementation"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-dd0d381e040c485fba308240aeab61ef", contenttype:"Grouping"});
+										dataElements.push({id:"id-dd0d381e040c485fba308240aeab61ef", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Article+8%3A+Quality+standards+and+validation"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-57861b2fece84dfe9d6ef421af5864b9", contenttype:"Grouping"});
+										dataElements.push({id:"id-57861b2fece84dfe9d6ef421af5864b9", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Article+9%3A+Education%2C+training+and+awareness"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-0a7b91e6f750423588f08f5657ba8840", contenttype:"Grouping"});
+										dataElements.push({id:"id-0a7b91e6f750423588f08f5657ba8840", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+guidelines"), documentation:decodeURL("Programma%3A+https%3A%2F%2Fwww.xt-ehr.eu%2F")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-ba91631d5fd649ed86a617f752e3cf36", contenttype:"Grouping"});
+										dataElements.push({id:"id-ba91631d5fd649ed86a617f752e3cf36", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+general+guidelines"), documentation:decodeURL("Nog+niet+beschikbaar")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-d40f3a61507f406f97b9d5845d41db16", contenttype:"Grouping"});
+										dataElements.push({id:"id-d40f3a61507f406f97b9d5845d41db16", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+guidelines+on+ePrescription+and+eDispensation"), documentation:decodeURL("Nog+niet+beschikbaar")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-b0a9e8cbbb3645bfa26019d12c93362d", contenttype:"Grouping"});
+										dataElements.push({id:"id-b0a9e8cbbb3645bfa26019d12c93362d", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+guidelines+on+Patient+Summary"), documentation:decodeURL("Nog+niet+beschikbaar")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-5cfdcedceda64ac9878190f67fee6fb5", contenttype:"Grouping"});
+										dataElements.push({id:"id-5cfdcedceda64ac9878190f67fee6fb5", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+guidelines+on+laboratory+results"), documentation:decodeURL("Nog+niet+beschikbaar")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-281523f738b5492fa11a56ddee2bee06", contenttype:"Grouping"});
+										dataElements.push({id:"id-281523f738b5492fa11a56ddee2bee06", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+guidelines+on+Medical+imaging+studies+and+reports"), documentation:decodeURL("Nog+niet+beschikbaar")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-3b68bf6193914ee9a7490dd6cba8e5f4", contenttype:"Grouping"});
+										dataElements.push({id:"id-3b68bf6193914ee9a7490dd6cba8e5f4", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EHR-System+guidelines+on+Hospital+discharge+reports"), documentation:decodeURL("Nog+niet+beschikbaar")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-b6c0fb4ae9934619aead55649f82d498", contenttype:"Grouping"});
+										dataElements.push({id:"id-b6c0fb4ae9934619aead55649f82d498", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Common+information+model"), documentation:decodeURL("Generieke+%28of+common%29+delen+van+het+informatiemodel+zijn+te+hekennen+aan+een+C+codering+in+het+%22Descriptions+%26+Constraints%22+veld.%0D%0A%0D%0Ahttps%3A%2F%2Fbuild.fhir.org%2Fig%2FXt-EHR%2Fxt-ehr-common%2Findex.html+")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-7b62b70afc7d454ba74b7dc0cb9d5202", contenttype:"Grouping"});
+										dataElements.push({id:"id-7b62b70afc7d454ba74b7dc0cb9d5202", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eP%2FeD+information+model"), documentation:decodeURL("In+ontwikkeling%3A+https%3A%2F%2Fbuild.fhir.org%2Fig%2FXt-EHR%2Fxt-ehr-common%2FuseCasePrescription.html")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-aaedf98d907841aea243f2b2b8693e4a", contenttype:"Grouping"});
+										dataElements.push({id:"id-aaedf98d907841aea243f2b2b8693e4a", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Patient+summary+information+model"), documentation:decodeURL("In+ontwikkeling%3A+https%3A%2F%2Fbuild.fhir.org%2Fig%2FXt-EHR%2Fxt-ehr-common%2FuseCasePatientSummary.html")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-a4f838bc0ff84530b1a292bc41058860", contenttype:"Grouping"});
+										dataElements.push({id:"id-a4f838bc0ff84530b1a292bc41058860", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Laboratory+result+information+model"), documentation:decodeURL("In+ontwikkeling%3A+https%3A%2F%2Fbuild.fhir.org%2Fig%2FXt-EHR%2Fxt-ehr-common%2FuseCaseLabReport.html")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-b58a6681e2a74b259c75591b7e0f2134", contenttype:"Grouping"});
+										dataElements.push({id:"id-b58a6681e2a74b259c75591b7e0f2134", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Medical+imaging+information+model"), documentation:decodeURL("In+ontwikkeling%3A+https%3A%2F%2Fbuild.fhir.org%2Fig%2FXt-EHR%2Fxt-ehr-common%2FuseCaseMedicalImages.html")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-c1749ff32eb646acb6ed0531d1660c0c", contenttype:"Grouping"});
+										dataElements.push({id:"id-c1749ff32eb646acb6ed0531d1660c0c", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Hospital+discharge+reports+information+model"), documentation:decodeURL("In+ontwikkeling%3A+https%3A%2F%2Fbuild.fhir.org%2Fig%2FXt-EHR%2Fxt-ehr-common%2FuseCaseHospitalDischargeReport.html")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-34b0e612b4804032b2de6f60665b12e7", contenttype:"Grouping"});
+										dataElements.push({id:"id-34b0e612b4804032b2de6f60665b12e7", type:"Grouping", specialization:decodeURL(""), name:decodeURL("General+FHIR+implementation+guide"), documentation:decodeURL("Geen+idee+of+deze+er+komt+maar+ik+doe+de+aanname+dat+ook+de+FHIR+profielen+gebruik+zullen+maken+van+common+elements.")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-76a474812b984cec902880ac2bd49a15", contenttype:"Grouping"});
+										dataElements.push({id:"id-76a474812b984cec902880ac2bd49a15", type:"Grouping", specialization:decodeURL(""), name:decodeURL("eP%2F+eD+FHIR+implementation+guide"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-bb6275c382614613b46dcdde91f43907", contenttype:"Grouping"});
+										dataElements.push({id:"id-bb6275c382614613b46dcdde91f43907", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Patient+summary+FHIR+implementation+guidelines"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-76001d7e27c9453e8be454ac745f03fd", contenttype:"Grouping"});
+										dataElements.push({id:"id-76001d7e27c9453e8be454ac745f03fd", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Labotory+result+FHIR+implementation+guidelines"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-6647106f4893462dbb06dd721f066170", contenttype:"Grouping"});
+										dataElements.push({id:"id-6647106f4893462dbb06dd721f066170", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Medical+imaging+FHIR+implementation+guidelines"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-948057ef6d71460eaab5c2605ae3f161", contenttype:"Grouping"});
+										dataElements.push({id:"id-948057ef6d71460eaab5c2605ae3f161", type:"Grouping", specialization:decodeURL(""), name:decodeURL("Hospital+discharge+reports+FHIR+implementation+guidelines"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-141e63f995a340ebac75eb13ca189cc0", contentid:"id-678ae5bc59ef4212801e76dfc2777a27", contenttype:"Grouping"});
+										dataElements.push({id:"id-678ae5bc59ef4212801e76dfc2777a27", type:"Grouping", specialization:decodeURL(""), name:decodeURL("EEHRxF"), documentation:decodeURL("%5BEuropean+Electronic+Health+Record+exchange+Format%5D%0D%0A%0D%0Ahttps%3A%2F%2Fdigital-strategy.ec.europa.eu%2Fen%2Flibrary%2Frecommendation-european-electronic-health-record-exchange-format%0D%0A%0D%0A-+Dit+is+al+een+vrij+oude+specificatie%3B+wordt+deze+vervangen+door+een+nieuwe%2C+o.a.+gebaseerd+op+FHIR%3F%0D%0A-+Is+dit+de+verbindende+factor+tussen+netwerk+en+systemen+of+moet+er+straks+volop+getransformeerd+gaan+worden%3F%0D%0A%0D%0A")});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-84d76e81444942a58e07ff47cddc6219", contenttype:"Folder"});
+								dataFolders.push({id:"id-84d76e81444942a58e07ff47cddc6219", type:"Folder", name:decodeURL("Relations"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-14c59452e18c49cfaa40d097a27af0ea", contenttype:"Folder"});
+									dataFolders.push({id:"id-14c59452e18c49cfaa40d097a27af0ea", type:"Folder", name:decodeURL("EHDS"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-656cbee9a22a4d418a5f0805ad483904", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-656cbee9a22a4d418a5f0805ad483904", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-d15df97c2c0149c0ab0c6dd203dacc80", targetid:"id-dc3ebef6416a4e37972b8ff4a25e7cef"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-dbdb8e0827104c37a8299db61c552c82", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-dbdb8e0827104c37a8299db61c552c82", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-d15df97c2c0149c0ab0c6dd203dacc80", targetid:"id-802c8210928e47d0b3b53bf4bab5091a"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-ace8eaf8de7a455d8dfd5e827df31794", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-ace8eaf8de7a455d8dfd5e827df31794", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-d15df97c2c0149c0ab0c6dd203dacc80", targetid:"id-7cedf4888d9948bf937c7d7f4903e4f8"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-2498dd50ef584f78854fe40df907b91b", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-2498dd50ef584f78854fe40df907b91b", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-6b6f1533f34f4ec9ab2845bf32458a82"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-75197a3c770a4281a01d324708e8fa5f", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-75197a3c770a4281a01d324708e8fa5f", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-0e29bc545b994f068940231e46846dee"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-04094ca7158147b9ba84d83670e9608b", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-04094ca7158147b9ba84d83670e9608b", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-c97e703067bd45fe9a1cc4866843a243"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-5bb674e748964467916c084674628069", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-5bb674e748964467916c084674628069", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-be25f085cc7b40ff938a5bf12ab01f0a"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-290f015baa1142d799d509c6be41131c", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-290f015baa1142d799d509c6be41131c", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-51e88e1c3b07484fab1a760c2344ebf0"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-18a9be057bdb43abb18691e447ca71de", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-18a9be057bdb43abb18691e447ca71de", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-1a49641e1107464ea55ecdad583187c5"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-78d167adc19b443fbd4d49656759d375", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-78d167adc19b443fbd4d49656759d375", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-802c8210928e47d0b3b53bf4bab5091a", targetid:"id-ccea136cccf140cba0f24877ee27be42"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-76add7644eda4d6ead8d26cf655a200d", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-76add7644eda4d6ead8d26cf655a200d", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ccea136cccf140cba0f24877ee27be42", targetid:"id-915fc68e7d624cc4aad9b2011912f7a0"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-0d83229b3a0c4371a48f4a1ff475c948", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-0d83229b3a0c4371a48f4a1ff475c948", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ccea136cccf140cba0f24877ee27be42", targetid:"id-60ef91ce00fe45289cf1c7536e272982"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-3cb9c82444334f7caeadc0d9f7f7d6a4", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-3cb9c82444334f7caeadc0d9f7f7d6a4", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ccea136cccf140cba0f24877ee27be42", targetid:"id-02768805484c42d09ac2a420480285a2"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-e17f20bfeb8943a0b8dee920d66d3b24", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-e17f20bfeb8943a0b8dee920d66d3b24", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-915fc68e7d624cc4aad9b2011912f7a0", targetid:"id-c876da69bedb4ffdbfede7b3f8b76867"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-0c87f8be1ef94317b424d10055e98e44", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-0c87f8be1ef94317b424d10055e98e44", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-915fc68e7d624cc4aad9b2011912f7a0", targetid:"id-4b2e6608f7a24dd5ac8b339451cc9ce8"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-84fb3fce54d94ffcb2c99d19041374a3", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-84fb3fce54d94ffcb2c99d19041374a3", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-915fc68e7d624cc4aad9b2011912f7a0", targetid:"id-8846430916c647b385697457ae6cf3b9"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-fdf365a4233947919074024e92d15821", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-fdf365a4233947919074024e92d15821", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-915fc68e7d624cc4aad9b2011912f7a0", targetid:"id-386e0647c2274e88afa8fbfce298c144"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-d6bee95eff7d44f0952ae8f79ab9806a", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-d6bee95eff7d44f0952ae8f79ab9806a", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-60ef91ce00fe45289cf1c7536e272982", targetid:"id-ff04d208e4204232a2ae880a9b9a11eb"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-1cd1471b0e004540b42076207a808dc0", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-1cd1471b0e004540b42076207a808dc0", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-60ef91ce00fe45289cf1c7536e272982", targetid:"id-53aa0c80e8d041a7885fdcb5d4165215"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-2cedaa340ec1464ea9ae39358faf2916", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-2cedaa340ec1464ea9ae39358faf2916", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-60ef91ce00fe45289cf1c7536e272982", targetid:"id-ed4d4430ccbd406b92cde948f682ac16"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-9328cacafb254300a4927d8a587d0c45", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-9328cacafb254300a4927d8a587d0c45", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-60ef91ce00fe45289cf1c7536e272982", targetid:"id-b432b9b080354674beedf88722ce7796"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-1e17c7615fa04ed4ad880dc3454ebd5c", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-1e17c7615fa04ed4ad880dc3454ebd5c", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-60ef91ce00fe45289cf1c7536e272982", targetid:"id-e5eb817bc87b47c1b1825b5d6760b731"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-9c28505ba95a43f681ae6533530931d2", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-9c28505ba95a43f681ae6533530931d2", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-02768805484c42d09ac2a420480285a2", targetid:"id-906ebab626174ebe9af153985b02f0bc"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-f264933a6b3f4dd58e3ad1237a5ef686", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-f264933a6b3f4dd58e3ad1237a5ef686", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-02768805484c42d09ac2a420480285a2", targetid:"id-0ed758dc49eb4c93b0fcfa42d5598e00"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-35127466c69c442a96415abeec2c6181", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-35127466c69c442a96415abeec2c6181", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-02768805484c42d09ac2a420480285a2", targetid:"id-e83c582b8f06430f8d7fa9b0ecbd9242"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-f30a8e51a796432a9f2b638ca8b73626", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-f30a8e51a796432a9f2b638ca8b73626", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-02768805484c42d09ac2a420480285a2", targetid:"id-d9871bae5a944edcb33f3fdf4552e563"});
+										dataFoldersContent.push({folderid:"id-14c59452e18c49cfaa40d097a27af0ea", contentid:"id-f3cb273ba9af44ed89a29fbf59d15420", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-f3cb273ba9af44ed89a29fbf59d15420", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-60ef91ce00fe45289cf1c7536e272982", targetid:"id-4bbce00de756450a8cdff52b29e34557"});
+
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-73f786df9bc4401287c472bf16a2d081", contenttype:"Folder"});
+									dataFolders.push({id:"id-73f786df9bc4401287c472bf16a2d081", type:"Folder", name:decodeURL("eHN"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-f11e60297b034a349bed5c67bc0b0e87", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-f11e60297b034a349bed5c67bc0b0e87", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-25c233eb58e942ce96dd5d24190a0339", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-25c233eb58e942ce96dd5d24190a0339", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-36c3f9152fea400faad955827ce8a9c5"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-ae51086c0b134798881c37b5989aba95", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-ae51086c0b134798881c37b5989aba95", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-cb3c9e35989d49ccb4e4b32f4aa66b67"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-537baca31a1e4408a305b34a23bcdcf3", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-537baca31a1e4408a305b34a23bcdcf3", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-2fa20cc8a7884c0e91f818df217e9ce2"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-57b27093924a41148baed2a7ace51a88", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-57b27093924a41148baed2a7ace51a88", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-ba06ed6d85984e979e5c41006dd4df97"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-48f9a6f4432c471389c39e49930d77ef", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-48f9a6f4432c471389c39e49930d77ef", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-b170a6cd112744dd97ee40ccc7a362bb"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-6c36d668a5804180a11678b4b06acd92", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-6c36d668a5804180a11678b4b06acd92", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", targetid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-61747363782f409788e90031ed3bfc2d", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-61747363782f409788e90031ed3bfc2d", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", targetid:"id-13fb9aa94da14445b4df42d4c1fc77b3"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-641fec4e58ab4de4972a6dfb716926fc", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-641fec4e58ab4de4972a6dfb716926fc", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", targetid:"id-60b0d9a1b92a43959e3cd80ae1069bc7"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-90810c39e50c4174b898aff2f785b26d", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-90810c39e50c4174b898aff2f785b26d", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", targetid:"id-46777f365ac54a4191cbb0b5eaa68758"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-7aa3b53f36bf4bd2b6ee5cf1e94133c2", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-7aa3b53f36bf4bd2b6ee5cf1e94133c2", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-de5d9569507e439a959f0c01f785cb7f", targetid:"id-1dde1baaf4604ce1891274a2df65ccf3"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-5c9be17b8ec7468f915710adab08841c", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-5c9be17b8ec7468f915710adab08841c", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-de5d9569507e439a959f0c01f785cb7f", targetid:"id-2e7bf28469be46af9f83776c4525ae8c"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-adf1c379d1e543eb925d8f8c947baf4e", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-adf1c379d1e543eb925d8f8c947baf4e", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-de5d9569507e439a959f0c01f785cb7f", targetid:"id-79bcee77a19a4f599e4e204d933aace0"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-467a64cf478543469c2f05ea46155a51", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-467a64cf478543469c2f05ea46155a51", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-de5d9569507e439a959f0c01f785cb7f", targetid:"id-4bbef5f6b8f94b95b4ded7e2f5b7a79e"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-0f4db1a0699947458479151b6733f812", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-0f4db1a0699947458479151b6733f812", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-de5d9569507e439a959f0c01f785cb7f", targetid:"id-37e9e5eecb9c4c619782717d774e2050"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-58c54b7a8eaf4ebb9357f6a31bf154b4", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-58c54b7a8eaf4ebb9357f6a31bf154b4", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-20aadfc1cdeb493d9719fe1525639d23"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-25d3003b2290446b999c6360ca4e5a68", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-25d3003b2290446b999c6360ca4e5a68", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-478f9036a0c243b9a209a06ce7b92c3e"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-1f344dea28d7408f98d24d2ddc89925c", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-1f344dea28d7408f98d24d2ddc89925c", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-92a338f42f5a4cc9bb6383f2d737c9b5"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-e869c71bfc5a4918add2a0d0ac87783b", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-e869c71bfc5a4918add2a0d0ac87783b", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-723622c9e2bc42d0803a45d814c37d35"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-4138fe959cb94322962c392480b87dad", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-4138fe959cb94322962c392480b87dad", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-2996541fad484f1c9f600db9819079c1"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-a16b77b9d3a6404a99996f8a8aa1fd0c", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-a16b77b9d3a6404a99996f8a8aa1fd0c", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-eb811e980b0a4bb88b1a66ad6608dc0c"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-15c9639c7f944b91a3716d553ba7f84d", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-15c9639c7f944b91a3716d553ba7f84d", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-3a50074572574721b2edefd3a6a664f5"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-ae947932b08c42b4983dcc12afa593af", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-ae947932b08c42b4983dcc12afa593af", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", targetid:"id-4721d35da99e453990bf97d85ac9a5fb"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-c413a92bef404953af6f99ba58a8e970", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-c413a92bef404953af6f99ba58a8e970", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-9429dcd110f74919b3a7697569114b23", targetid:"id-7969e7b74a2e4b979d2544b1ce229935"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-e0e8fc9385934e45b749fa6d59ca878d", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-e0e8fc9385934e45b749fa6d59ca878d", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-9429dcd110f74919b3a7697569114b23", targetid:"id-672b102e11c349c58243be69e08b6bb5"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-ba84c9711ca94fb4bda8ab1f3ca82350", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-ba84c9711ca94fb4bda8ab1f3ca82350", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", targetid:"id-9429dcd110f74919b3a7697569114b23"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-4b44dd4740eb48e4885aeec7bf0e09ab", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-4b44dd4740eb48e4885aeec7bf0e09ab", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", targetid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4"});
+										dataFoldersContent.push({folderid:"id-73f786df9bc4401287c472bf16a2d081", contentid:"id-dc8d0df3e89648e4a1b2e1d070d8bf98", contenttype:"CompositionRelationship"});
+											dataRelationships.push({id:"id-dc8d0df3e89648e4a1b2e1d070d8bf98", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", targetid:"id-de5d9569507e439a959f0c01f785cb7f"});
+
+
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-b1534f182a85450cb2dffb1d5cd58fac", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-b1534f182a85450cb2dffb1d5cd58fac", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-13fb9aa94da14445b4df42d4c1fc77b3", targetid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-c3e65266cb334ebeaf481b57537f3eb8", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-c3e65266cb334ebeaf481b57537f3eb8", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-13fb9aa94da14445b4df42d4c1fc77b3", targetid:"id-dd0d381e040c485fba308240aeab61ef"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-7ec96a5669144bd4b544d9aa7ab32e51", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-7ec96a5669144bd4b544d9aa7ab32e51", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-13fb9aa94da14445b4df42d4c1fc77b3", targetid:"id-57861b2fece84dfe9d6ef421af5864b9"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-c6cc8885c90844638622905d36b6c625", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-c6cc8885c90844638622905d36b6c625", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-57861b2fece84dfe9d6ef421af5864b9", targetid:"id-72e553f04b414bcc84fdae32288d4199"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-12059c7b9ee049d2b5ddae57ef1ea40b", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-12059c7b9ee049d2b5ddae57ef1ea40b", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-57861b2fece84dfe9d6ef421af5864b9", targetid:"id-17b5f215fa384c69b014fc3b367729fd"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-f2bf6749a2654144b6f3ee7606cb8a62", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-f2bf6749a2654144b6f3ee7606cb8a62", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-57861b2fece84dfe9d6ef421af5864b9", targetid:"id-17072249af184c2bb4f27b31fb607dbd"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-21284cec037841a7821353233802f082", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-21284cec037841a7821353233802f082", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-57861b2fece84dfe9d6ef421af5864b9", targetid:"id-9c5b56ed8604466ebe7234ef802ace42"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-e41e072d0eb54bc2a1de9fb1d08cebcf", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-e41e072d0eb54bc2a1de9fb1d08cebcf", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-57861b2fece84dfe9d6ef421af5864b9", targetid:"id-614bb46a35714611a7cafc6c9c712256"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-af01962089e042ea8c2d467927810e99", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-af01962089e042ea8c2d467927810e99", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-57861b2fece84dfe9d6ef421af5864b9", targetid:"id-d623986bacd64df7a2dd049ebc0b4af7"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-97dd3bc1aa9d45e5bc35643ede5f86ec", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-97dd3bc1aa9d45e5bc35643ede5f86ec", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-64ca5c743ea443b096b11d310a99952d"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-c1a72e35aaf5456e988a29b5258be789", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-c1a72e35aaf5456e988a29b5258be789", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-550a587fd1de4e1e9950e59138a5890b"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-71f6d841c7374561bde0d978aa5e44f9", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-71f6d841c7374561bde0d978aa5e44f9", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-ff8e9125d8ee4ef4baaf32cda6e00f63"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-60aff492a3784236854a6fa88c1f3c1b", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-60aff492a3784236854a6fa88c1f3c1b", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-1ddfa494969b446d81ef675cb3afbde2"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-bfa965371bd14a3284919b00f53f42e8", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-bfa965371bd14a3284919b00f53f42e8", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-91444c22a44a44579e88df9e525cb434"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-6f6ff99913fe40238897983bab835f92", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-6f6ff99913fe40238897983bab835f92", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-97e2e14e5a514a12b7c5ebb4bacd9f6c"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-bbcc21a9edf144d9af27ad4a51b9a9fc", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-bbcc21a9edf144d9af27ad4a51b9a9fc", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dd0d381e040c485fba308240aeab61ef", targetid:"id-83a71efc367e48fbada69e34bc10602c"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-648e324429a5431ab4f3845cefc8afe0", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-648e324429a5431ab4f3845cefc8afe0", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", targetid:"id-99fc497eb5284265b0596d09f117743f"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-db7403d8cee34ef1925e0c3ed115c282", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-db7403d8cee34ef1925e0c3ed115c282", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", targetid:"id-5c5ba4a9e49f40dbb9a05892191223c7"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-a26e3f345c434cf7923b990794876cde", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-a26e3f345c434cf7923b990794876cde", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", targetid:"id-546a2aab7cdd4300b01c7c1fe98df1c4"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-b42ba1dd0aab40e296afa931950b0e0d", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-b42ba1dd0aab40e296afa931950b0e0d", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", targetid:"id-3d8ba004704f46fe9b5a4a08c2da4ffe"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-a9921ed69d4b4f8684a312ad9de99ea9", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-a9921ed69d4b4f8684a312ad9de99ea9", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", targetid:"id-ffc0ebfe1e6341508ac91d659b62dc35"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-a2aed34fefed42d9903f91616c52048e", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-a2aed34fefed42d9903f91616c52048e", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-0a7b91e6f750423588f08f5657ba8840", targetid:"id-ba91631d5fd649ed86a617f752e3cf36"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-62fdc2ab7f994cb08f85ab1995da539c", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-62fdc2ab7f994cb08f85ab1995da539c", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-0a7b91e6f750423588f08f5657ba8840", targetid:"id-d40f3a61507f406f97b9d5845d41db16"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-54de7c6a51e946878220c6fa4df1c41b", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-54de7c6a51e946878220c6fa4df1c41b", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-0a7b91e6f750423588f08f5657ba8840", targetid:"id-b0a9e8cbbb3645bfa26019d12c93362d"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-b786226481144ce498d3a5b4413f6adc", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-b786226481144ce498d3a5b4413f6adc", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-0a7b91e6f750423588f08f5657ba8840", targetid:"id-5cfdcedceda64ac9878190f67fee6fb5"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-3c5b9ba6dc95470ba1cd2283bec68bd8", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-3c5b9ba6dc95470ba1cd2283bec68bd8", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-0a7b91e6f750423588f08f5657ba8840", targetid:"id-281523f738b5492fa11a56ddee2bee06"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-0562123236eb42cfb5450c9f6a0f38f1", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"id-0562123236eb42cfb5450c9f6a0f38f1", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-0a7b91e6f750423588f08f5657ba8840", targetid:"id-3b68bf6193914ee9a7490dd6cba8e5f4"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-d47c71c9e6a141b78b74d25c9cb9039c", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-d47c71c9e6a141b78b74d25c9cb9039c", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-ba91631d5fd649ed86a617f752e3cf36", targetid:"id-b6c0fb4ae9934619aead55649f82d498"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-83d9fc5b79c548b98c62b55b8a2c1cf4", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-83d9fc5b79c548b98c62b55b8a2c1cf4", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-b6c0fb4ae9934619aead55649f82d498", targetid:"id-34b0e612b4804032b2de6f60665b12e7"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-0c4ea1f189514ba3a0cbb238deb67d7a", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-0c4ea1f189514ba3a0cbb238deb67d7a", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-d40f3a61507f406f97b9d5845d41db16", targetid:"id-7b62b70afc7d454ba74b7dc0cb9d5202"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-a9e764f06ee8436787a64ad3497440d7", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-a9e764f06ee8436787a64ad3497440d7", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-7b62b70afc7d454ba74b7dc0cb9d5202", targetid:"id-76a474812b984cec902880ac2bd49a15"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-e1bc4dbdab4e4fee8ee370db2a8c7455", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-e1bc4dbdab4e4fee8ee370db2a8c7455", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-b0a9e8cbbb3645bfa26019d12c93362d", targetid:"id-aaedf98d907841aea243f2b2b8693e4a"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-fd54064a1f144be39f67fc5f7a262597", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-fd54064a1f144be39f67fc5f7a262597", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-aaedf98d907841aea243f2b2b8693e4a", targetid:"id-bb6275c382614613b46dcdde91f43907"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-f9a233870ef14df0bb7bbcd4d78178b1", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-f9a233870ef14df0bb7bbcd4d78178b1", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-5cfdcedceda64ac9878190f67fee6fb5", targetid:"id-a4f838bc0ff84530b1a292bc41058860"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-54023cb924374846a209f081ca277848", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-54023cb924374846a209f081ca277848", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-a4f838bc0ff84530b1a292bc41058860", targetid:"id-76001d7e27c9453e8be454ac745f03fd"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-65bfc1130be647e3b503bdab8cff9a49", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-65bfc1130be647e3b503bdab8cff9a49", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-281523f738b5492fa11a56ddee2bee06", targetid:"id-b58a6681e2a74b259c75591b7e0f2134"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-965119f4767b4ee88ee5d174d7ee3ced", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-965119f4767b4ee88ee5d174d7ee3ced", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-b58a6681e2a74b259c75591b7e0f2134", targetid:"id-6647106f4893462dbb06dd721f066170"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-3f14b85b102e4c248ca9b568905b03b8", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-3f14b85b102e4c248ca9b568905b03b8", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-3b68bf6193914ee9a7490dd6cba8e5f4", targetid:"id-c1749ff32eb646acb6ed0531d1660c0c"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-b482935b16704da6977fbe1fc1559808", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-b482935b16704da6977fbe1fc1559808", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-c1749ff32eb646acb6ed0531d1660c0c", targetid:"id-948057ef6d71460eaab5c2605ae3f161"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-0b26da85c0044085a28bfbe87148709f", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-0b26da85c0044085a28bfbe87148709f", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-dfb62756f1a44e539cefd431e45a9f1b", targetid:"id-678ae5bc59ef4212801e76dfc2777a27"});
+									dataFoldersContent.push({folderid:"id-84d76e81444942a58e07ff47cddc6219", contentid:"id-c3438ab82954452e9db537cb5b35edaf", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"id-c3438ab82954452e9db537cb5b35edaf", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"id-678ae5bc59ef4212801e76dfc2777a27", targetid:"id-0a7b91e6f750423588f08f5657ba8840"});
+
+								dataFoldersContent.push({folderid:"id-a441bb7192404762b123bd3a211ebb7b", contentid:"id-16ed1f1fb7984f788af8af47c85fb93d", contenttype:"Folder"});
+								dataFolders.push({id:"id-16ed1f1fb7984f788af8af47c85fb93d", type:"Folder", name:decodeURL("Views"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"id-16ed1f1fb7984f788af8af47c85fb93d", contentid:"id-9542d2a5970f4fabb5d3e8499c6b95f9", contenttype:"Folder"});
+									dataFolders.push({id:"id-9542d2a5970f4fabb5d3e8499c6b95f9", type:"Folder", name:decodeURL("00.+Start"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-9542d2a5970f4fabb5d3e8499c6b95f9", contentid:"id-aa2f13446d8b4066822d456ae955f5f7", contenttype:"ArchimateDiagramModel"});
+											dataViews.push({id:"id-aa2f13446d8b4066822d456ae955f5f7", type:"ArchimateDiagramModel", name:decodeURL("01.+EHDS%2C+eHealth+network+guidelines"), documentation:decodeURL("")});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-d15df97c2c0149c0ab0c6dd203dacc80", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-dc3ebef6416a4e37972b8ff4a25e7cef", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-802c8210928e47d0b3b53bf4bab5091a", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-7cedf4888d9948bf937c7d7f4903e4f8", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-7fe6f70a167242218a74b0f67530f667", contenttype:"ArchimateDiagramModel"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-dfb62756f1a44e539cefd431e45a9f1b", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-36c3f9152fea400faad955827ce8a9c5", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-cb3c9e35989d49ccb4e4b32f4aa66b67", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-2fa20cc8a7884c0e91f818df217e9ce2", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-ba06ed6d85984e979e5c41006dd4df97", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-b170a6cd112744dd97ee40ccc7a362bb", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-e068daf331754984ac3255d75053f789", contenttype:"ArchimateDiagramModel"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-0a7b91e6f750423588f08f5657ba8840", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-ba91631d5fd649ed86a617f752e3cf36", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-d40f3a61507f406f97b9d5845d41db16", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-b0a9e8cbbb3645bfa26019d12c93362d", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-5cfdcedceda64ac9878190f67fee6fb5", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-281523f738b5492fa11a56ddee2bee06", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-3b68bf6193914ee9a7490dd6cba8e5f4", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-b6c0fb4ae9934619aead55649f82d498", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-7b62b70afc7d454ba74b7dc0cb9d5202", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-aaedf98d907841aea243f2b2b8693e4a", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-a4f838bc0ff84530b1a292bc41058860", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-b58a6681e2a74b259c75591b7e0f2134", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-c1749ff32eb646acb6ed0531d1660c0c", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-34b0e612b4804032b2de6f60665b12e7", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-76a474812b984cec902880ac2bd49a15", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-bb6275c382614613b46dcdde91f43907", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-76001d7e27c9453e8be454ac745f03fd", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-6647106f4893462dbb06dd721f066170", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-948057ef6d71460eaab5c2605ae3f161", contenttype:"Grouping"});
+													dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-678ae5bc59ef4212801e76dfc2777a27", contenttype:"Grouping"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-656cbee9a22a4d418a5f0805ad483904", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-dbdb8e0827104c37a8299db61c552c82", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-ace8eaf8de7a455d8dfd5e827df31794", contenttype:"CompositionRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-f11e60297b034a349bed5c67bc0b0e87", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-25c233eb58e942ce96dd5d24190a0339", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-ae51086c0b134798881c37b5989aba95", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-537baca31a1e4408a305b34a23bcdcf3", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-57b27093924a41148baed2a7ace51a88", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-48f9a6f4432c471389c39e49930d77ef", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-0b26da85c0044085a28bfbe87148709f", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-a2aed34fefed42d9903f91616c52048e", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-62fdc2ab7f994cb08f85ab1995da539c", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-54de7c6a51e946878220c6fa4df1c41b", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-b786226481144ce498d3a5b4413f6adc", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-3c5b9ba6dc95470ba1cd2283bec68bd8", contenttype:"CompositionRelationship"});
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-0562123236eb42cfb5450c9f6a0f38f1", contenttype:"CompositionRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-d47c71c9e6a141b78b74d25c9cb9039c", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-0c4ea1f189514ba3a0cbb238deb67d7a", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-e1bc4dbdab4e4fee8ee370db2a8c7455", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-f9a233870ef14df0bb7bbcd4d78178b1", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-65bfc1130be647e3b503bdab8cff9a49", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-3f14b85b102e4c248ca9b568905b03b8", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-83d9fc5b79c548b98c62b55b8a2c1cf4", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-a9e764f06ee8436787a64ad3497440d7", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-fd54064a1f144be39f67fc5f7a262597", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-54023cb924374846a209f081ca277848", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-965119f4767b4ee88ee5d174d7ee3ced", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-b482935b16704da6977fbe1fc1559808", contenttype:"AssociationRelationship"});
+
+																			dataViewsContent.push({viewid:"id-aa2f13446d8b4066822d456ae955f5f7", contentid:"id-c3438ab82954452e9db537cb5b35edaf", contenttype:"AssociationRelationship"});
+
+
+
+									dataFoldersContent.push({folderid:"id-16ed1f1fb7984f788af8af47c85fb93d", contentid:"id-82c214b0aa064207af1b8e0c2bb61de0", contenttype:"Folder"});
+									dataFolders.push({id:"id-82c214b0aa064207af1b8e0c2bb61de0", type:"Folder", name:decodeURL("01.+EHDS"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-82c214b0aa064207af1b8e0c2bb61de0", contentid:"id-e570c695342648a1a2f8a15af824ef88", contenttype:"Folder"});
+										dataFolders.push({id:"id-e570c695342648a1a2f8a15af824ef88", type:"Folder", name:decodeURL("Hoofdstuk+II"), documentation:decodeURL("Primair+gebruik")});
+
+										dataFoldersContent.push({folderid:"id-82c214b0aa064207af1b8e0c2bb61de0", contentid:"id-c64a7aebc9ef4a9884a2c4ebdb6268e0", contenttype:"Folder"});
+										dataFolders.push({id:"id-c64a7aebc9ef4a9884a2c4ebdb6268e0", type:"Folder", name:decodeURL("Hoofdstuk+III"), documentation:decodeURL("EPD-Systmen+en+Welness+APPS")});
+											dataFoldersContent.push({folderid:"id-c64a7aebc9ef4a9884a2c4ebdb6268e0", contentid:"id-7fe6f70a167242218a74b0f67530f667", contenttype:"ArchimateDiagramModel"});
+												dataViews.push({id:"id-7fe6f70a167242218a74b0f67530f667", type:"ArchimateDiagramModel", name:decodeURL("00.+EPD-Systemen+en+Wellness+APPS"), documentation:decodeURL("")});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-802c8210928e47d0b3b53bf4bab5091a", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-aa2f13446d8b4066822d456ae955f5f7", contenttype:"ArchimateDiagramModel"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-6b6f1533f34f4ec9ab2845bf32458a82", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-0e29bc545b994f068940231e46846dee", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-c97e703067bd45fe9a1cc4866843a243", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-be25f085cc7b40ff938a5bf12ab01f0a", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-51e88e1c3b07484fab1a760c2344ebf0", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-1a49641e1107464ea55ecdad583187c5", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-ccea136cccf140cba0f24877ee27be42", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contenttype:"ArchimateDiagramModel"});
+
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-2498dd50ef584f78854fe40df907b91b", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-75197a3c770a4281a01d324708e8fa5f", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-04094ca7158147b9ba84d83670e9608b", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-5bb674e748964467916c084674628069", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-290f015baa1142d799d509c6be41131c", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-18a9be057bdb43abb18691e447ca71de", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-7fe6f70a167242218a74b0f67530f667", contentid:"id-78d167adc19b443fbd4d49656759d375", contenttype:"CompositionRelationship"});
+
+
+
+										dataFoldersContent.push({folderid:"id-82c214b0aa064207af1b8e0c2bb61de0", contentid:"id-381a1c1fb0984eacaac1b7e6e928afaf", contenttype:"Folder"});
+										dataFolders.push({id:"id-381a1c1fb0984eacaac1b7e6e928afaf", type:"Folder", name:decodeURL("Hoofdstuk+IV"), documentation:decodeURL("Secundair+gebruik")});
+
+										dataFoldersContent.push({folderid:"id-82c214b0aa064207af1b8e0c2bb61de0", contentid:"id-1f7ba009c6234db982cd8e7fe4188410", contenttype:"Folder"});
+										dataFolders.push({id:"id-1f7ba009c6234db982cd8e7fe4188410", type:"Folder", name:decodeURL("xx+Bijlagen"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-1f7ba009c6234db982cd8e7fe4188410", contentid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contenttype:"ArchimateDiagramModel"});
+												dataViews.push({id:"id-e0fa5f8c07e14678b221da9b8e863ab6", type:"ArchimateDiagramModel", name:decodeURL("Bijlage+II+-+Essentiele+vereisten"), documentation:decodeURL("")});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-ccea136cccf140cba0f24877ee27be42", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-7fe6f70a167242218a74b0f67530f667", contenttype:"ArchimateDiagramModel"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-915fc68e7d624cc4aad9b2011912f7a0", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-60ef91ce00fe45289cf1c7536e272982", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-02768805484c42d09ac2a420480285a2", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-c876da69bedb4ffdbfede7b3f8b76867", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-4b2e6608f7a24dd5ac8b339451cc9ce8", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-8846430916c647b385697457ae6cf3b9", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-386e0647c2274e88afa8fbfce298c144", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-ff04d208e4204232a2ae880a9b9a11eb", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-53aa0c80e8d041a7885fdcb5d4165215", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-ed4d4430ccbd406b92cde948f682ac16", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-b432b9b080354674beedf88722ce7796", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-e5eb817bc87b47c1b1825b5d6760b731", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-4bbce00de756450a8cdff52b29e34557", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-906ebab626174ebe9af153985b02f0bc", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-0ed758dc49eb4c93b0fcfa42d5598e00", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-e83c582b8f06430f8d7fa9b0ecbd9242", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-d9871bae5a944edcb33f3fdf4552e563", contenttype:"Requirement"});
+
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-76add7644eda4d6ead8d26cf655a200d", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-0d83229b3a0c4371a48f4a1ff475c948", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-3cb9c82444334f7caeadc0d9f7f7d6a4", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-e17f20bfeb8943a0b8dee920d66d3b24", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-0c87f8be1ef94317b424d10055e98e44", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-84fb3fce54d94ffcb2c99d19041374a3", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-fdf365a4233947919074024e92d15821", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-d6bee95eff7d44f0952ae8f79ab9806a", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-1cd1471b0e004540b42076207a808dc0", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-2cedaa340ec1464ea9ae39358faf2916", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-9328cacafb254300a4927d8a587d0c45", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-1e17c7615fa04ed4ad880dc3454ebd5c", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-f3cb273ba9af44ed89a29fbf59d15420", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-9c28505ba95a43f681ae6533530931d2", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-f264933a6b3f4dd58e3ad1237a5ef686", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-35127466c69c442a96415abeec2c6181", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e0fa5f8c07e14678b221da9b8e863ab6", contentid:"id-f30a8e51a796432a9f2b638ca8b73626", contenttype:"CompositionRelationship"});
+
+
+
+
+
+									dataFoldersContent.push({folderid:"id-16ed1f1fb7984f788af8af47c85fb93d", contentid:"id-0b7d026c53ca44e79a966e2dd3946c7d", contenttype:"Folder"});
+									dataFolders.push({id:"id-0b7d026c53ca44e79a966e2dd3946c7d", type:"Folder", name:decodeURL("02.+eHealth+network+guidelines"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-0b7d026c53ca44e79a966e2dd3946c7d", contentid:"id-53f73ff19a494257b7dbb50d4ba45fbc", contenttype:"Folder"});
+										dataFolders.push({id:"id-53f73ff19a494257b7dbb50d4ba45fbc", type:"Folder", name:decodeURL("01.+eHN+General+guidelines"), documentation:decodeURL("")});
+											dataFoldersContent.push({folderid:"id-53f73ff19a494257b7dbb50d4ba45fbc", contentid:"id-e068daf331754984ac3255d75053f789", contenttype:"ArchimateDiagramModel"});
+												dataViews.push({id:"id-e068daf331754984ac3255d75053f789", type:"ArchimateDiagramModel", name:decodeURL("01.+eHN+General+guidelines"), documentation:decodeURL("")});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-f2bb3585e18f4ce293e3a1f1caf6cdfc", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-aa2f13446d8b4066822d456ae955f5f7", contenttype:"ArchimateDiagramModel"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-13fb9aa94da14445b4df42d4c1fc77b3", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-60b0d9a1b92a43959e3cd80ae1069bc7", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-46777f365ac54a4191cbb0b5eaa68758", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-c6eb3512a25d4f96b9478565e5039bc6", contenttype:"ArchimateDiagramModel"});
+														dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-63c92ee1252441e9bb7cb24185533c21", contenttype:"ArchimateDiagramModel"});
+
+																				dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-6c36d668a5804180a11678b4b06acd92", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-61747363782f409788e90031ed3bfc2d", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-641fec4e58ab4de4972a6dfb716926fc", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-e068daf331754984ac3255d75053f789", contentid:"id-90810c39e50c4174b898aff2f785b26d", contenttype:"CompositionRelationship"});
+
+
+											dataFoldersContent.push({folderid:"id-53f73ff19a494257b7dbb50d4ba45fbc", contentid:"id-c6eb3512a25d4f96b9478565e5039bc6", contenttype:"ArchimateDiagramModel"});
+												dataViews.push({id:"id-c6eb3512a25d4f96b9478565e5039bc6", type:"ArchimateDiagramModel", name:decodeURL("02.+Chapter+II+%E2%80%93+Legal+and+Regulatory+Considerations"), documentation:decodeURL("")});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-ed0a342b3e52474ba4ac4bbb5c772ca6", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-e068daf331754984ac3255d75053f789", contenttype:"ArchimateDiagramModel"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-9429dcd110f74919b3a7697569114b23", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-1c5bdd0e0f3943f3b18ae1e930801ad4", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-de5d9569507e439a959f0c01f785cb7f", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-7969e7b74a2e4b979d2544b1ce229935", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-672b102e11c349c58243be69e08b6bb5", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-20aadfc1cdeb493d9719fe1525639d23", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-478f9036a0c243b9a209a06ce7b92c3e", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-92a338f42f5a4cc9bb6383f2d737c9b5", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-723622c9e2bc42d0803a45d814c37d35", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-2996541fad484f1c9f600db9819079c1", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-eb811e980b0a4bb88b1a66ad6608dc0c", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-3a50074572574721b2edefd3a6a664f5", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-4721d35da99e453990bf97d85ac9a5fb", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-1dde1baaf4604ce1891274a2df65ccf3", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-2e7bf28469be46af9f83776c4525ae8c", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-79bcee77a19a4f599e4e204d933aace0", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-4bbef5f6b8f94b95b4ded7e2f5b7a79e", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-37e9e5eecb9c4c619782717d774e2050", contenttype:"Requirement"});
+
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-ba84c9711ca94fb4bda8ab1f3ca82350", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-4b44dd4740eb48e4885aeec7bf0e09ab", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-dc8d0df3e89648e4a1b2e1d070d8bf98", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-c413a92bef404953af6f99ba58a8e970", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-e0e8fc9385934e45b749fa6d59ca878d", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-58c54b7a8eaf4ebb9357f6a31bf154b4", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-25d3003b2290446b999c6360ca4e5a68", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-1f344dea28d7408f98d24d2ddc89925c", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-e869c71bfc5a4918add2a0d0ac87783b", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-4138fe959cb94322962c392480b87dad", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-a16b77b9d3a6404a99996f8a8aa1fd0c", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-15c9639c7f944b91a3716d553ba7f84d", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-ae947932b08c42b4983dcc12afa593af", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-7aa3b53f36bf4bd2b6ee5cf1e94133c2", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-5c9be17b8ec7468f915710adab08841c", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-adf1c379d1e543eb925d8f8c947baf4e", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-467a64cf478543469c2f05ea46155a51", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-c6eb3512a25d4f96b9478565e5039bc6", contentid:"id-0f4db1a0699947458479151b6733f812", contenttype:"CompositionRelationship"});
+
+
+											dataFoldersContent.push({folderid:"id-53f73ff19a494257b7dbb50d4ba45fbc", contentid:"id-63c92ee1252441e9bb7cb24185533c21", contenttype:"ArchimateDiagramModel"});
+												dataViews.push({id:"id-63c92ee1252441e9bb7cb24185533c21", type:"ArchimateDiagramModel", name:decodeURL("03.+Chapter+III+%E2%80%93+Organisational+and+Policy+Considerations"), documentation:decodeURL("")});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-13fb9aa94da14445b4df42d4c1fc77b3", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-e068daf331754984ac3255d75053f789", contenttype:"ArchimateDiagramModel"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-f8d1fd6ab54f4381b488b9e51e8f44a5", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-dd0d381e040c485fba308240aeab61ef", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-57861b2fece84dfe9d6ef421af5864b9", contenttype:"Grouping"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-99fc497eb5284265b0596d09f117743f", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-5c5ba4a9e49f40dbb9a05892191223c7", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-546a2aab7cdd4300b01c7c1fe98df1c4", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-ffc0ebfe1e6341508ac91d659b62dc35", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-3d8ba004704f46fe9b5a4a08c2da4ffe", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-64ca5c743ea443b096b11d310a99952d", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-550a587fd1de4e1e9950e59138a5890b", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-ff8e9125d8ee4ef4baaf32cda6e00f63", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-1ddfa494969b446d81ef675cb3afbde2", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-91444c22a44a44579e88df9e525cb434", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-97e2e14e5a514a12b7c5ebb4bacd9f6c", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-83a71efc367e48fbada69e34bc10602c", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-72e553f04b414bcc84fdae32288d4199", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-17b5f215fa384c69b014fc3b367729fd", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-17072249af184c2bb4f27b31fb607dbd", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-9c5b56ed8604466ebe7234ef802ace42", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-614bb46a35714611a7cafc6c9c712256", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-d623986bacd64df7a2dd049ebc0b4af7", contenttype:"Requirement"});
+
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-b1534f182a85450cb2dffb1d5cd58fac", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-c3e65266cb334ebeaf481b57537f3eb8", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-7ec96a5669144bd4b544d9aa7ab32e51", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-648e324429a5431ab4f3845cefc8afe0", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-db7403d8cee34ef1925e0c3ed115c282", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-a26e3f345c434cf7923b990794876cde", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-b42ba1dd0aab40e296afa931950b0e0d", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-a9921ed69d4b4f8684a312ad9de99ea9", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-97dd3bc1aa9d45e5bc35643ede5f86ec", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-c1a72e35aaf5456e988a29b5258be789", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-71f6d841c7374561bde0d978aa5e44f9", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-60aff492a3784236854a6fa88c1f3c1b", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-bfa965371bd14a3284919b00f53f42e8", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-6f6ff99913fe40238897983bab835f92", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-bbcc21a9edf144d9af27ad4a51b9a9fc", contenttype:"CompositionRelationship"});
+
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-c6cc8885c90844638622905d36b6c625", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-12059c7b9ee049d2b5ddae57ef1ea40b", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-f2bf6749a2654144b6f3ee7606cb8a62", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-21284cec037841a7821353233802f082", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-e41e072d0eb54bc2a1de9fb1d08cebcf", contenttype:"CompositionRelationship"});
+																				dataViewsContent.push({viewid:"id-63c92ee1252441e9bb7cb24185533c21", contentid:"id-af01962089e042ea8c2d467927810e99", contenttype:"CompositionRelationship"});
+
+
+
+
+
+
+
+
+
+
+						    alasql('CREATE TABLE Elements');
+						    alasql('CREATE TABLE Properties');
+						    alasql('CREATE TABLE Relationships');
+						    alasql('CREATE TABLE Views');
+						    alasql('CREATE TABLE ViewsContent');
+						    alasql('CREATE TABLE Folders');
+						    alasql('CREATE TABLE FoldersContent');
+
+						    alasql.tables.Elements.data = dataElements;
+						    alasql.tables.Properties.data = dataProperties;
+						    alasql.tables.Relationships.data = dataRelationships;
+						    alasql.tables.Views.data = dataViews;
+						    alasql.tables.ViewsContent.data = dataViewsContent;
+						    alasql.tables.Folders.data = dataFolders;
+						    alasql.tables.FoldersContent.data = dataFoldersContent;
+						</script> 
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>
